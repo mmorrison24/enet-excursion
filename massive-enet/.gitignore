@@ -1,0 +1,38 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*/obj/*
+
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+bin/*
+
+#Microsoft Cruft
+*.vcxproj*
+*.suo
+*.sln
+*.sdf
+*.opensdf
+
+#XCode Cruft
+build/*.xc*
+
+#linux Cruft
+build/Makefile
+build/*.make

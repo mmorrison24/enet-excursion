@@ -1,0 +1,19 @@
+CXX = g++
+# Update these paths as necessary to match your installation
+ENET_LIB = -L/usr/local/lib -lenet
+ENET_INCLUDE = -I/usr/local/include 
+
+CXXFLAGS = -Wall -g -c -std=c++11 $(ENET_INCLUDE)
+LDFLAGS = -g -lstdc++ $(ENET_LIB) 
+EXE = bin/enet
+
+all: $(EXE)
+
+$(EXE): obj/main.o
+	$(CXX) $< $(LDFLAGS) -o $@
+
+obj/main.o: main.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+clean:
+	rm obj/*.o && rm $(EXE)  

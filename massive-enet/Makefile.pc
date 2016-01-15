@@ -1,0 +1,19 @@
+CXX = g++
+# Update these paths as necessary to match your installation
+ENET_LIB = -LC:\MinGW\msys\1.0\lib -lenet -lws2_32 -lwinmm
+ENET_INCLUDE = -IC:/MinGW/msys/1.0/include
+# If your compiler is a bit older you may need to change -std=c++11 to -std=c++0x
+CXXFLAGS = -Wall -g3 -c -std=c++11 $(ENET_INCLUDE) 
+LDFLAGS = -lmingw32  $(ENET_LIB) -g3 -static-libgcc -static-libstdc++
+EXE = bin/enet.exe
+
+all: $(EXE)
+
+$(EXE): obj/main.o
+	$(CXX) $< $(LDFLAGS) -o $@
+
+obj/main.o: main.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+clean:
+	rm obj/*.o && rm $(EXE)  
